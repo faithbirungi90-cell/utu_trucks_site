@@ -1,0 +1,152 @@
+{% extends 'fleet/base.html' %}
+
+{% block content %}
+<section class="py-12 bg-gray-50 min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="flex mb-8 text-sm font-medium text-gray-500 space-x-2">
+      <a href="{% url 'home' %}" class="hover:text-gray-700">Home</a>
+      <span>/</span>
+      <a href="{% url 'lineup' %}" class="hover:text-gray-700">Commercial Lineup</a>
+      <span>/</span>
+      <span class="text-gray-900 font-semibold">{{ truck.name }}</span>
+    </nav>
+
+    <!-- Vehicle Images Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <!-- Main / Exterior Image -->
+  <div class="md:col-span-2 bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+    {% if truck.main_image %}
+      <img src="{{ truck.main_image.url }}" alt="{{ truck.name }}" class="w-full h-80 object-cover">
+    {% elif truck.exterior_image %}
+      <img src="{{ truck.exterior_image.url }}" alt="{{ truck.name }} Exterior" class="w-full h-80 object-cover">
+    {% else %}
+      <div class="w-full h-80 flex items-center justify-center text-slate-400">No Main Image</div>
+    {% endif %}
+  </div>
+
+  <!-- Interior Image or Gallery -->
+  <div class="bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 flex flex-col justify-between">
+    {% if truck.interior_image %}
+      <img src="{{ truck.interior_image.url }}" alt="{{ truck.name }} Interior" class="w-full h-60 object-cover">
+      <div class="p-3 bg-white border-t text-xs font-bold text-slate-700 text-center">Cabin Interior View</div>
+    {% else %}
+      <div class="w-full h-60 flex items-center justify-center text-slate-400">No Interior Image</div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Extra Gallery Images (If uploaded via admin) -->
+{% if gallery_images %}
+<div class="mb-8">
+  <h3 class="text-base font-bold text-slate-900 mb-4">Vehicle Gallery</h3>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {% for img in gallery_images %}
+      <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+        <img src="{{ img.image.url }}" alt="{{ img.caption|default:truck.name }}" class="w-full h-36 object-cover">
+        {% if img.caption %}
+          <p class="p-2 text-[10px] text-center font-semibold text-slate-600 bg-white">{{ img.caption }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+    <!-- Main Truck Detail Card -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-12">
+      <div class="p-8 md:p-10">
+        
+        <!-- Header & Category -->
+        <div class="mb-6">
+          <span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-md bg-blue-50 text-blue-700 mb-3">
+            {{ truck.category.name }}
+          </span>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">{{ truck.name }}</h1>
+          <p class="mt-2 text-lg text-gray-600">{{ truck.tagline }}</p>
+        </div>
+
+        <!-- Technical Specifications Grid -->
+        <h2 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Technical Specifications</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 bg-gray-50 p-6 rounded-xl mb-8">
+          <div>
+            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Driving Range</span>
+            <p class="text-xl font-bold text-gray-900 mt-1">{{ truck.range_km }}</p>
+          </div>
+          <div>
+            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Payload Capacity</span>
+            <p class="text-xl font-bold text-gray-900 mt-1">{{ truck.payload_capacity_kg }} kg</p>
+          </div>
+          <div>
+            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Battery Pack</span>
+            <p class="text-xl font-bold text-gray-900 mt-1">{{ truck.battery_capacity_kwh }} kWh</p>
+          </div>
+          <div>
+            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Fast Charge Time</span>
+            <p class="text-xl font-bold text-gray-900 mt-1">{{ truck.fast_charge_time }}</p>
+          </div>
+        </div>
+
+        <!-- Extended Specifications Table -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-sm">
+          <div class="border border-gray-100 rounded-xl p-5 space-y-3">
+            <h3 class="font-bold text-gray-900 text-base mb-3 border-b pb-2">Dimensions & Chassis</h3>
+            <div class="flex justify-between"><span class="text-gray-500">Overall Dimensions</span><span class="font-semibold text-gray-800">{{ truck.dimensions|default:"N/A" }}</span></div>
+            <div class="flex justify-between"><span class="text-gray-500">Wheelbase</span><span class="font-semibold text-gray-800">{{ truck.wheelbase|default:"N/A" }}</span></div>
+            <div class="flex justify-between"><span class="text-gray-500">Drive Configuration</span><span class="font-semibold text-gray-800">{{ truck.drive_mode|default:"4x2" }}</span></div>
+          </div>
+
+          <div class="border border-gray-100 rounded-xl p-5 space-y-3">
+            <h3 class="font-bold text-gray-900 text-base mb-3 border-b pb-2">Performance & Powertrain</h3>
+            <div class="flex justify-between"><span class="text-gray-500">Motor Peak Power</span><span class="font-semibold text-gray-800">{{ truck.motor_peak_power|default:"N/A" }}</span></div>
+            <div class="flex justify-between"><span class="text-gray-500">Motor Torque</span><span class="font-semibold text-gray-800">{{ truck.motor_torque|default:"N/A" }}</span></div>
+            <div class="flex justify-between"><span class="text-gray-500">Max Speed</span><span class="font-semibold text-gray-800">{{ truck.max_speed|default:"N/A" }}</span></div>
+            <div class="flex justify-between"><span class="text-gray-500">Charging Standard</span><span class="font-semibold text-gray-800">{{ truck.charging_port|default:"CCS2" }}</span></div>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-gray-100">
+          <a href="{% url 'get_quote' %}?truck_id={{ truck.pk }}" 
+             class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition shadow">
+            Request Fleet Quote
+          </a>
+          {% if truck.brochure_pdf %}
+            <a href="{{ truck.brochure_pdf.url }}" target="_blank" 
+               class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition">
+              Download Spec Sheet (PDF)
+            </a>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related Models Section -->
+    {% if related_trucks %}
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">Similar {{ truck.category.name }} Models</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {% for rel in related_trucks %}
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex flex-col justify-between">
+              <div>
+                <h4 class="font-bold text-gray-900 mb-1">{{ rel.name }}</h4>
+                <p class="text-xs text-gray-500 mb-4">{{ rel.tagline }}</p>
+                <div class="text-xs text-gray-600 space-y-1">
+                  <div><strong>Range:</strong> {{ rel.range_km }}</div>
+                  <div><strong>Payload:</strong> {{ rel.payload_capacity_kg }} kg</div>
+                </div>
+              </div>
+              <a href="{% url 'truck_detail' rel.pk %}" class="mt-4 block text-center text-xs font-semibold text-blue-600 hover:underline">
+                View Specs &rarr;
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

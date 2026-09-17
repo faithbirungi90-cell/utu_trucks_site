@@ -1,0 +1,497 @@
+{% extends 'fleet/base.html' %}
+{% load static %}
+
+{% block title %}Home | UTU Commercial Fleet{% endblock %}
+
+{% block content %}
+<!-- 1. HERO SECTION -->
+<section id="home-hero" class="relative w-full min-h-[calc(100vh-80px)] flex items-center bg-gray-900 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        {% if featured_truck %}
+            <img src="{{ featured_truck.main_image.url }}" alt="{{ featured_truck.name }}" class="w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out hover:scale-105">
+        {% else %}
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80" alt="UTU Electric Commercial Truck" class="w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out hover:scale-105">
+        {% endif %}
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-utu-dark/95 via-utu-dark/50 to-transparent"></div>
+    </div>
+
+    <!-- Wide Container Spanning Across Screen -->
+    <div class="max-w-7xl mx-auto px-6 py-12 w-full relative z-10 flex flex-col justify-end min-h-[calc(100vh-120px)]">
+        <div class="max-w-5xl text-white space-y-6 pb-8">
+            <div>
+                <span class="inline-block bg-utu-orange/20 text-utu-orange border border-utu-orange/40 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest backdrop-blur-md shadow-lg">
+                    Locally Assembled Zero-Emission Fleet
+                </span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight text-white drop-shadow-lg">
+                UTU <span class="text-utu-orange">Electric Commercial Trucks</span> in Kenya
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-200 font-medium leading-relaxed max-w-3xl drop-shadow">
+                Heavy-duty performance meets local precision. Built for high payloads, lower operational cost, and zero emissions across Kenya.
+            </p>
+
+            <div class="flex flex-wrap gap-4 items-center pt-2">
+                <a href="{% url 'lineup' %}" class="bg-utu-orange hover:bg-utu-orangeHover text-gray-900 font-extrabold text-sm uppercase px-8 py-4 rounded-xl shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    Browse Fleet Models
+                </a>
+                <a href="{% url 'technology' %}" class="bg-utu-dark/60 hover:bg-white/20 text-white border-2 border-white/80 backdrop-blur-md font-bold text-sm uppercase px-8 py-3.5 rounded-xl transition duration-300">
+                    Our Assembly Tech
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. INTERACTIVE MOTION BANNER SECTION -->
+<section class="relative w-full py-20 bg-slate-100 border-y border-slate-200 overflow-hidden select-none">   
+    <!-- Motion Graphics Canvas Background -->
+    <canvas id="motionCanvas" class="absolute inset-0 w-full h-full opacity-60 pointer-events-none"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="bg-utu-orange/15 text-utu-orange border border-utu-orange/30 text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-widest inline-block mb-3">
+                Next-Gen Ecosystem
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+                Interactive EV Power Network
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-2">
+                Move your cursor across the grid to energize the local commercial supply routes.
+            </p>
+        </div>
+
+        <!-- Interactive Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Interactive Card 1 -->
+            <div class="interactive-card group relative bg-white/90 backdrop-blur-md p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="p-4 bg-utu-orange/10 border border-utu-orange/20 rounded-2xl text-utu-orange group-hover:scale-110 group-hover:bg-utu-orange group-hover:text-gray-900 transition-all duration-300">
+                        <i class="bi bi-ev-station text-3xl"></i>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-utu-orange transition">Real-time Grid</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Smart Charging Nodes</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">High-voltage depot chargers integrated directly with CATL battery management software.</p>
+                
+                <div class="flex items-end justify-between border-t border-slate-200 pt-4">
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-500 uppercase">Speed</span>
+                        <span class="text-xl font-extrabold text-slate-900 group-hover:text-utu-orange transition">150 kW DC</span>
+                    </div>
+                    <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-utu-orange transition"></i>
+                </div>
+            </div>
+
+            <!-- Interactive Card 2 -->
+            <div class="interactive-card group relative bg-white/90 backdrop-blur-md p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="p-4 bg-utu-orange/10 border border-utu-orange/20 rounded-2xl text-utu-orange group-hover:scale-110 group-hover:bg-utu-orange group-hover:text-gray-900 transition-all duration-300">
+                        <i class="bi bi-truck-front text-3xl"></i>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-utu-orange transition">Active Fleet</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Heavy Hauling Logistics</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">Engineered for maximum payload performance across regional routes in East Africa.</p>
+                
+                <div class="flex items-end justify-between border-t border-slate-200 pt-4">
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-500 uppercase">Operational Cost</span>
+                        <span class="text-xl font-extrabold text-slate-900 group-hover:text-utu-orange transition">-60% Fuel Savings</span>
+                    </div>
+                    <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-utu-orange transition"></i>
+                </div>
+            </div>
+
+            <!-- Interactive Card 3 -->
+            <div class="interactive-card group relative bg-white/90 backdrop-blur-md p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="p-4 bg-utu-orange/10 border border-utu-orange/20 rounded-2xl text-utu-orange group-hover:scale-110 group-hover:bg-utu-orange group-hover:text-gray-900 transition-all duration-300">
+                        <i class="bi bi-cpu text-3xl"></i>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-utu-orange transition">Telematics</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Live Battery Telemetry</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">Predictive maintenance tracking thermal health, charge status, and efficiency metrics.</p>
+                
+                <div class="flex items-end justify-between border-t border-slate-200 pt-4">
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-500 uppercase">Uptime</span>
+                        <span class="text-xl font-extrabold text-slate-900 group-hover:text-utu-orange transition">99.4% Availability</span>
+                    </div>
+                    <i class="bi bi-arrow-up-right text-slate-500 group-hover:text-utu-orange transition"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 3. OUR STORY & OUR MISSION SECTIONS -->
+<section id="our-story-mission" class="bg-slate-950 py-24 text-white border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 space-y-28">
+
+        <!-- PART 1: OUR STORY (Left Transparent Image Card + Right Wording) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left: Full-Cover Transparent Card -->
+            <div class="lg:col-span-5 order-2 lg:order-1">
+                <div class="group relative rounded-3xl overflow-hidden bg-transparent h-96 sm:h-[420px] shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex items-center justify-center">
+                    <img src="{% static 'fleet/images/inside-truck.png' %}" 
+                         alt="UTU Commercial Electric Truck Interior" 
+                         class="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-110">
+                    
+                    <div class="absolute bottom-4 left-4 z-10 bg-black/40 backdrop-blur-md border border-white/20 px-4 py-2 rounded-xl">
+                        <span class="block text-[10px] font-extrabold text-utu-orange uppercase tracking-wider">UTU Electric Fleet</span>
+                        <span class="block text-xs font-bold text-white">Commercial Grade Reliability</span>
+                    </div>
+
+                    <div class="absolute bottom-4 right-4 z-10 bg-black/40 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full">
+                        <span class="text-utu-orange text-[10px] font-extrabold uppercase tracking-wider">Zero Emission</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Our Story Wording -->
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                <div>
+                    <span class="bg-utu-orange/15 text-utu-orange border border-utu-orange/30 text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-widest inline-block mb-3">
+                        Our Story
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                        Pioneering Commercial Mobility in East Africa
+                    </h2>
+                </div>
+
+                <div class="space-y-4 text-gray-300 text-base leading-relaxed font-normal">
+                    <p>
+                        Established under <strong class="text-white">UTU Cars Africa</strong>, our commercial EV division was created to transform regional freight and logistics through zero-emission heavy transport solutions.
+                    </p>
+                    <p>
+                        By combining established automotive manufacturing practices with cutting-edge electric mobility technology, we bridge global EV innovation with local assembly standards. We build and support commercial haulers customized for high payloads, tough terrains, and maximum cost efficiency across Kenya.
+                    </p>
+                </div>
+
+                <div class="pt-2">
+                    <a href="{% url 'lineup' %}" class="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-widest text-utu-orange hover:text-white transition">
+                        <span>Explore Fleet Models</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Divider Line -->
+        <hr class="border-gray-800/80 my-12">
+
+        <!-- PART 2: OUR MISSION (Left Wording + Right Transparent Image Card) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left: Our Mission Wording -->
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="bg-utu-orange/15 text-utu-orange border border-utu-orange/30 text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-widest inline-block mb-3">
+                        Our Mission
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                        Built Local: Kenya Vehicle Manufacturers Assembly
+                    </h2>
+                </div>
+
+                <div class="space-y-4 text-gray-300 text-base leading-relaxed font-normal">
+                    <p>
+                        Our mission is to support local technical capacity and build Kenya's electric commercial-vehicle ecosystem. Every truck is brought together through a structured local assembly process at <strong class="text-white">Kenya Vehicle Manufacturers (KVM)</strong> in Thika, Kenya.
+                    </p>
+                    <p>
+                        Starting from supplied Completely Knocked Down (CKD) components, our trucks undergo systematic mechanical, electrical, and drivetrain integration. This hands-on process builds deep local technical capability for long-term maintenance, inspection, and after-sales support.
+                    </p>
+                </div>
+
+                <!-- Mission Quick Stats -->
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="p-4 bg-slate-900/50 backdrop-blur-md rounded-2xl border border-slate-800/80">
+                        <span class="block text-xl font-black text-utu-orange">KVM Thika</span>
+                        <span class="text-xs text-gray-400 font-medium">Local Assembly Facility</span>
+                    </div>
+                    <div class="p-4 bg-slate-900/50 backdrop-blur-md rounded-2xl border border-slate-800/80">
+                        <span class="block text-xl font-black text-white">CKD Process</span>
+                        <span class="text-xs text-gray-400 font-medium">Structured Quality Control</span>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="{% url 'technology' %}" class="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-widest text-utu-orange hover:text-white transition">
+                        <span>Read Full Assembly Report</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Full-Cover Transparent Card -->
+            <div class="lg:col-span-5">
+                <div class="group relative rounded-3xl overflow-hidden bg-transparent h-96 sm:h-[420px] shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex items-center justify-center">
+                    <img src="{% static 'fleet/images/electrictruck-anatomy.png' %}" 
+                         alt="KVM Electric Assembly Truck" 
+                         class="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-110">
+                    
+                    <div class="absolute bottom-4 left-4 z-10 bg-black/40 backdrop-blur-md border border-white/20 px-4 py-2 rounded-xl">
+                        <span class="block text-[10px] font-extrabold text-utu-orange uppercase tracking-wider">KVM Facility</span>
+                        <span class="block text-xs font-bold text-white">Thika, Kenya</span>
+                    </div>
+
+                    <div class="absolute bottom-4 right-4 z-10 bg-black/40 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full">
+                        <span class="text-white text-[10px] font-extrabold uppercase tracking-wider">Local Build</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Home Page Contact Us Section (Light Theme) -->
+<section id="contact-us" class="relative py-20 px-6 bg-white text-slate-900 overflow-hidden border-t border-slate-200">
+    
+    <!-- Subtle Background Grid Overlay -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <div class="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        <div class="absolute -top-32 right-1/4 w-[500px] h-[500px] bg-utu-orange/10 rounded-full blur-[140px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Side: Section Intro & Direct Contact Info -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-3">
+                    <span class="text-xs font-bold text-utu-orange uppercase tracking-widest bg-utu-orange/10 px-3 py-1 rounded-full border border-utu-orange/30">Get In Touch</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-950 leading-tight">Connect with Our Fleet Support Team</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Have questions about commercial EV adoption, custom specs, or charging infrastructure? Fill out the form and our specialist team will reach out promptly.
+                    </p>
+                </div>
+
+                <!-- Django Success / Error Messages -->
+                {% if messages %}
+                    <div class="space-y-2">
+                        {% for message in messages %}
+                            <div class="p-4 rounded-xl text-sm font-semibold {% if message.tags == 'success' %}bg-emerald-100 border border-emerald-300 text-emerald-900{% else %}bg-rose-100 border border-rose-300 text-rose-900{% endif %}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Contact Points -->
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-utu-orange/20 text-utu-orange border border-utu-orange/40 flex items-center justify-center shrink-0">
+                            <i class="bi bi-geo-alt-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase font-bold text-slate-400">Main Showroom</h4>
+                            <p class="text-sm font-bold text-slate-900">Karen 31 Retail Mall, Nairobi, Kenya</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-utu-orange/20 text-utu-orange border border-utu-orange/40 flex items-center justify-center shrink-0">
+                            <i class="bi bi-telephone-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase font-bold text-slate-400">Direct Phone</h4>
+                            <p class="text-sm font-bold text-slate-900">+254 768 667 992</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-utu-orange/20 text-utu-orange border border-utu-orange/40 flex items-center justify-center shrink-0">
+                            <i class="bi bi-envelope-fill text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs uppercase font-bold text-slate-400">Email Address</h4>
+                            <p class="text-sm font-bold text-slate-900">info@utucars.africa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="lg:col-span-7">
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl relative">
+                    <h3 class="text-xl font-extrabold text-slate-950 mb-6 flex items-center space-x-2">
+                        <i class="bi bi-chat-left-dots text-utu-orange"></i>
+                        <span>Send Us a Message</span>
+                    </h3>
+
+                    <form method="POST" action="{% url 'home' %}" class="space-y-5">
+                        {% csrf_token %}
+
+                        <!-- Row 1: Full Name & Company -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-2">
+                                <label for="full_name" class="block text-xs font-bold text-slate-700 uppercase">Full Name *</label>
+                                <input type="text" id="full_name" name="full_name" required placeholder="e.g. John Doe"
+                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="company_name" class="block text-xs font-bold text-slate-700 uppercase">Company / Organization</label>
+                                <input type="text" id="company_name" name="company_name" placeholder="e.g. UTU Logistics Ltd"
+                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Email & Phone Number -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-2">
+                                <label for="email" class="block text-xs font-bold text-slate-700 uppercase">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com"
+                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="phone" class="block text-xs font-bold text-slate-700 uppercase">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+254 700 000 000"
+                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
+                            </div>
+                        </div>
+
+                        <!-- Inquiry Subject -->
+                        <div class="space-y-2">
+                            <label for="subject" class="block text-xs font-bold text-slate-700 uppercase">Inquiry Type</label>
+                            <select id="subject" name="subject"
+                                    class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none transition shadow-sm">
+                                <option value="general">General Inquiry</option>
+                                <option value="fleet_purchase">Fleet Purchase & Commercial Trucks</option>
+                                <option value="charging">Charging Stations & Infrastructure</option>
+                                <option value="technical">Technical Support & Telematics</option>
+                            </select>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div class="space-y-2">
+                            <label for="message" class="block text-xs font-bold text-slate-700 uppercase">Your Message *</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your fleet requirement or inquiry..."
+                                      class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl p-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition resize-none shadow-sm"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                                class="w-full bg-utu-orange hover:bg-amber-500 text-slate-950 font-black text-sm uppercase tracking-wider py-4 rounded-xl flex items-center justify-center space-x-2 transition-all shadow-md hover:shadow-lg cursor-pointer">
+                            <span>Submit Inquiry</span>
+                            <i class="bi bi-send-fill text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('motionCanvas');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function resize() {
+            width = canvas.width = canvas.parentElement.offsetWidth;
+            height = canvas.height = canvas.parentElement.offsetHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        window.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                if (mouse.x && mouse.y) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        this.size = 4;
+                    } else {
+                        this.size = 2;
+                    }
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = '#ea580c';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 60; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        ctx.strokeStyle = `rgba(234, 88, 12, ${1 - dist / 120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    });
+</script>
+{% endblock %}

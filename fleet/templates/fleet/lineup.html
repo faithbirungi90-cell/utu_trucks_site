@@ -1,0 +1,122 @@
+{% extends 'fleet/base.html' %}
+{% load static %}
+
+{% block title %}Commercial Lineup | UTU Fleet{% endblock %}
+
+{% block content %}
+<section class="py-10 sm:py-16 bg-slate-50 min-h-screen border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+      <span class="inline-block bg-utu-orange/15 text-utu-orange border border-utu-orange/30 text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-widest mb-3">
+        Zero-Emission Fleet
+      </span>
+      <h1 class="text-4xl font-black text-slate-950 tracking-tight sm:text-5xl">
+        Commercial Electric Lineup
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 font-medium">
+        Explore our zero-emission commercial EVs built for high payload, regional logistics, and urban delivery across Kenya.
+      </p>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="flex justify-center items-center gap-3 mb-12 flex-wrap">
+      <a href="{% url 'lineup' %}" 
+         class="px-6 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all duration-200 {% if not selected_category %}bg-slate-950 text-white shadow-md{% else %}bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm{% endif %}">
+        All Trucks
+      </a>
+      {% for cat in categories %}
+        <a href="{% url 'lineup' %}?category={{ cat.slug }}" 
+           class="px-6 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all duration-200 {% if selected_category == cat.slug %}bg-utu-orange text-slate-950 shadow-md{% else %}bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-sm{% endif %}">
+          {{ cat.name }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Truck Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {% for truck in trucks %}
+        <div class="bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-200/80 flex flex-col justify-between overflow-hidden group">
+          
+          <div>
+            <!-- Card Image Box -->
+            <div class="relative w-full h-52 bg-slate-100 overflow-hidden border-b border-slate-100">
+              {% if truck.main_image %}
+                <img src="{{ truck.main_image.url }}" alt="{{ truck.name }}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+              {% else %}
+                <img src="{% static 'fleet/images/default-truck.png' %}" alt="{{ truck.name }}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+              {% endif %}
+              
+              <!-- Category Badge -->
+              <span class="absolute top-4 left-4 inline-block px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-lg bg-slate-950/80 text-utu-orange backdrop-blur-md border border-white/10">
+                {{ truck.category.name }}
+              </span>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-6">
+              <!-- Truck Name & Tagline -->
+              <h3 class="text-xl font-black text-slate-950 group-hover:text-utu-orange transition-colors mb-2">
+                <a href="{% url 'truck_detail' truck.pk %}">{{ truck.name }}</a>
+              </h3>
+              <p class="text-xs text-slate-500 font-medium mb-6 line-clamp-2 leading-relaxed">
+                {{ truck.tagline }}
+              </p>
+
+              <!-- Key Technical Specs Grid -->
+              <div class="grid grid-cols-2 gap-3 text-xs bg-slate-50 p-4 rounded-2xl border border-slate-200/60 mb-4">
+                <div>
+                  <span class="text-slate-400 block uppercase font-bold text-[10px] tracking-wider">Range</span>
+                  <span class="font-black text-slate-900 text-sm">{{ truck.range_km }}</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 block uppercase font-bold text-[10px] tracking-wider">Payload</span>
+                  <span class="font-black text-slate-900 text-sm">{{ truck.payload_capacity_kg }} kg</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 block uppercase font-bold text-[10px] tracking-wider">Battery</span>
+                  <span class="font-black text-slate-900 text-sm">{{ truck.battery_capacity_kwh }} kWh</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 block uppercase font-bold text-[10px] tracking-wider">Max Speed</span>
+                  <span class="font-black text-slate-900 text-sm">{{ truck.max_speed }}</span>
+                </div>
+              </div>
+
+              <!-- Extra Specs -->
+              <div class="space-y-1.5 text-xs text-slate-500 pt-3 border-t border-slate-100">
+                {% if truck.dimensions %}
+                  <div class="flex items-center justify-between"><strong class="text-slate-700 font-semibold">Dimensions:</strong> <span>{{ truck.dimensions }}</span></div>
+                {% endif %}
+                {% if truck.motor_peak_power %}
+                  <div class="flex items-center justify-between"><strong class="text-slate-700 font-semibold">Motor Power:</strong> <span>{{ truck.motor_peak_power }} ({{ truck.motor_torque }})</span></div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Actions -->
+          <div class="p-4 sm:p-5 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3S">
+            <a href="{% url 'truck_detail' truck.pk %}" 
+               class="flex-1 text-center py-3 px-4 bg-white border border-slate-300 text-slate-800 text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-slate-100 transition shadow-sm">
+              View Specs
+            </a>
+            <a href="{% url 'get_quote' %}?truck_id={{ truck.pk }}" 
+               class="flex-1 text-center py-3 px-4 bg-utu-orange hover:bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider rounded-xl transition shadow-md">
+              Request Quote
+            </a>
+          </div>
+
+        </div>
+      {% empty %}
+        <div class="col-span-full text-center py-16 bg-white rounded-3xl border border-slate-200 text-slate-500">
+          <i class="bi bi-truck text-4xl text-slate-300 block mb-2"></i>
+          <p class="text-sm font-semibold">No commercial trucks found for this category.</p>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endblock %}

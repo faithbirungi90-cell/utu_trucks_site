@@ -1,0 +1,396 @@
+{% extends 'fleet/base.html' %}
+{% load static %}
+
+{% block title %}Technology & Assembly | UTU Fleet{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION WITH LOCAL BACKGROUND VIDEO -->
+<section class="relative py-40 md:py-56 bg-slate-950 text-white overflow-hidden">
+    
+    <!-- Background Video Container -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            class="w-full h-full object-cover opacity-80">
+            <source src="{% static 'fleet/videos/assembly_bg.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Dark Overlay Gradient for High Text Contrast -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <span class="text-utu-orange font-bold uppercase tracking-widest text-xs">Innovation & Engineering</span>
+        <h1 class="text-4xl md:text-5xl font-black mt-2 drop-shadow-md">Assembly & Powertrain Technology</h1>
+        <p class="text-gray-300 mt-4 max-w-2xl text-base md:text-lg leading-relaxed drop-shadow-sm">
+            Discover how Dongfeng and Dayun electric commercial trucks are assembled and tested for East African roads.
+        </p>
+    </div>
+</section>
+
+<!-- Manufacturing Gallery & Workflow -->
+<!-- Interactive 5-Step Assembly & Technology Workflow -->
+<section class="py-20 max-w-7xl mx-auto px-6 overflow-hidden">
+    <div class="mb-16 text-center max-w-3xl mx-auto">
+        <span class="text-utu-orange font-bold uppercase tracking-widest text-xs">Precision Engineering</span>
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-2">5-Stage Assembly Workflow</h2>
+        <p class="text-slate-600 mt-3 text-sm md:text-base">Hover over each stage to reveal component details and structural engineering specs.</p>
+    </div>
+
+    <div class="space-y-16 md:space-y-24 relative">
+
+        <!-- STEP 1: Left 3/4 Width -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-9 bg-white hover:bg-utu-orange p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-[0_0_40px_rgba(245,166,35,0.65)] hover:border-utu-orange transition-all duration-500 group cursor-pointer">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <!-- Hover Glow Image Container (Transparent) -->
+                    <div class="relative overflow-hidden rounded-2xl h-64 bg-transparent group">
+                        <img src="{% static 'fleet/images/1_step_truck.png' %}" 
+                             alt="Chassis & Heavy-Duty Frame Integration" 
+                             class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110">
+                        <span class="absolute bottom-4 left-4 bg-utu-orange group-hover:bg-slate-950 text-slate-950 group-hover:text-white font-black text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg transition-colors">Stage 01</span>
+                    </div>
+                    <!-- Details -->
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold text-utu-orange group-hover:text-slate-950 uppercase tracking-wider transition-colors">Step 01</div>
+                        <h3 class="text-2xl font-black text-slate-900 group-hover:text-slate-950 transition-colors">Chassis & Axle Integration</h3>
+                        <p class="text-slate-600 group-hover:text-slate-900 text-sm leading-relaxed transition-colors">
+                            Reinforced high-tensile steel chassis mounting configured for East African heavy payload stress standards and off-road torsional durability.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-xs font-bold text-slate-500 group-hover:text-slate-900 transition-colors">
+                            <i class="bi bi-shield-check text-utu-orange group-hover:text-slate-950 text-base transition-colors"></i>
+                            <span>Payload Rated: Up to 28 T</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Arrow Container (1/4 Right) -->
+            <div class="hidden md:flex md:col-span-3 justify-center items-center">
+                <div class="flex flex-col items-center space-y-2 text-utu-orange animate-bounce">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Next Stage</span>
+                    <i class="bi bi-arrow-down-right text-5xl drop-shadow-[0_0_10px_rgba(245,166,35,0.5)]"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: Right 3/4 Width -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <!-- Arrow Container (1/4 Left) -->
+            <div class="hidden md:flex md:col-span-3 justify-center items-center order-2 md:order-1">
+                <div class="flex flex-col items-center space-y-2 text-utu-orange animate-bounce">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Next Stage</span>
+                    <i class="bi bi-arrow-down-left text-5xl drop-shadow-[0_0_10px_rgba(245,166,35,0.5)]"></i>
+                </div>
+            </div>
+            <!-- Content Container (3/4 Right) -->
+            <div class="md:col-span-9 bg-white hover:bg-utu-orange p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-[0_0_40px_rgba(245,166,35,0.65)] hover:border-utu-orange transition-all duration-500 group cursor-pointer order-1 md:order-2">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <!-- Details -->
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold text-utu-orange group-hover:text-slate-950 uppercase tracking-wider transition-colors">Step 02</div>
+                        <h3 class="text-2xl font-black text-slate-900 group-hover:text-slate-950 transition-colors">CATL LFP Battery Installation</h3>
+                        <p class="text-slate-600 group-hover:text-slate-900 text-sm leading-relaxed transition-colors">
+                            High-density liquid-cooled lithium iron phosphate (LFP) battery pack mounting with integrated active thermal management systems.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-xs font-bold text-slate-500 group-hover:text-slate-900 transition-colors">
+                            <i class="bi bi-battery-charging text-utu-orange group-hover:text-slate-950 text-base transition-colors"></i>
+                            <span>Capacity: 282 kWh - 400 kWh</span>
+                        </div>
+                    </div>
+                    <!-- Hover Glow Image Container (Transparent) -->
+                    <div class="relative overflow-hidden rounded-2xl h-64 bg-transparent group">
+                        <img src="{% static 'fleet/images/2_step_truck.png' %}" 
+                             alt="CATL LFP Battery Installation" 
+                             class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110">
+                        <span class="absolute bottom-4 right-4 bg-utu-orange group-hover:bg-slate-950 text-slate-950 group-hover:text-white font-black text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg transition-colors">Stage 02</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3: Left 3/4 Width -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-9 bg-white hover:bg-utu-orange p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-[0_0_40px_rgba(245,166,35,0.65)] hover:border-utu-orange transition-all duration-500 group cursor-pointer">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <!-- Hover Glow Image Container (Transparent) -->
+                    <div class="relative overflow-hidden rounded-2xl h-64 bg-transparent group">
+                        <img src="{% static 'fleet/images/4_step_truck.png' %}" 
+                             alt="Electric Powertrain & Drive Axle Setup" 
+                             class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110">
+                        <span class="absolute bottom-4 left-4 bg-utu-orange group-hover:bg-slate-950 text-slate-950 group-hover:text-white font-black text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg transition-colors">Stage 03</span>
+                    </div>
+                    <!-- Details -->
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold text-utu-orange group-hover:text-slate-950 uppercase tracking-wider transition-colors">Step 03</div>
+                        <h3 class="text-2xl font-black text-slate-900 group-hover:text-slate-950 transition-colors">High-Torque Electric Motor Coupling</h3>
+                        <p class="text-slate-600 group-hover:text-slate-900 text-sm leading-relaxed transition-colors">
+                            Integration of heavy-duty permanent magnet synchronous motors delivering instant torque and low heat output during long-haul transport.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-xs font-bold text-slate-500 group-hover:text-slate-900 transition-colors">
+                            <i class="bi bi-lightning-charge text-utu-orange group-hover:text-slate-950 text-base transition-colors"></i>
+                            <span>Peak Power: Up to 360 kW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Arrow Container (1/4 Right) -->
+            <div class="hidden md:flex md:col-span-3 justify-center items-center">
+                <div class="flex flex-col items-center space-y-2 text-utu-orange animate-bounce">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Next Stage</span>
+                    <i class="bi bi-arrow-down-right text-5xl drop-shadow-[0_0_10px_rgba(245,166,35,0.5)]"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4: Right 3/4 Width -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <!-- Arrow Container (1/4 Left) -->
+            <div class="hidden md:flex md:col-span-3 justify-center items-center order-2 md:order-1">
+                <div class="flex flex-col items-center space-y-2 text-utu-orange animate-bounce">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Next Stage</span>
+                    <i class="bi bi-arrow-down-left text-5xl drop-shadow-[0_0_10px_rgba(245,166,35,0.5)]"></i>
+                </div>
+            </div>
+            <!-- Content Container (3/4 Right) -->
+            <div class="md:col-span-9 bg-white hover:bg-utu-orange p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-[0_0_40px_rgba(245,166,35,0.65)] hover:border-utu-orange transition-all duration-500 group cursor-pointer order-1 md:order-2">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <!-- Details -->
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold text-utu-orange group-hover:text-slate-950 uppercase tracking-wider transition-colors">Step 04</div>
+                        <h3 class="text-2xl font-black text-slate-900 group-hover:text-slate-950 transition-colors">Telematics & ECU Diagnostics</h3>
+                        <p class="text-slate-600 group-hover:text-slate-900 text-sm leading-relaxed transition-colors">
+                            Calibration of fleet management modules, live CAN-bus telemetry, and ECU systems for remote battery diagnostic tracking.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-xs font-bold text-slate-500 group-hover:text-slate-900 transition-colors">
+                            <i class="bi bi-cpu text-utu-orange group-hover:text-slate-950 text-base transition-colors"></i>
+                            <span>4G / GPS Telemetry Sync</span>
+                        </div>
+                    </div>
+                    <!-- Hover Glow Image Container (Transparent) -->
+                    <div class="relative overflow-hidden rounded-2xl h-64 bg-transparent group">
+                        <img src="{% static 'fleet/images/3_step_truck.png' %}" 
+                             alt="Telematics & ECU Diagnostics" 
+                             class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110">
+                        <span class="absolute bottom-4 right-4 bg-utu-orange group-hover:bg-slate-950 text-slate-950 group-hover:text-white font-black text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg transition-colors">Stage 04</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 5: Left 3/4 Width (Final Stage) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-9 bg-white hover:bg-utu-orange p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-[0_0_40px_rgba(245,166,35,0.65)] hover:border-utu-orange transition-all duration-500 group cursor-pointer">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <!-- Hover Glow Image Container (Transparent) -->
+                    <div class="relative overflow-hidden rounded-2xl h-64 bg-transparent group">
+                        <img src="{% static 'fleet/images/4T_dayun.png' %}" 
+                             alt="Road Quality & Safety Inspection" 
+                             class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110">
+                        <span class="absolute bottom-4 left-4 bg-emerald-500 group-hover:bg-slate-950 text-slate-950 group-hover:text-white font-black text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg transition-colors">Stage 05 • Complete</span>
+                    </div>
+                    <!-- Details -->
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold text-emerald-600 group-hover:text-slate-950 uppercase tracking-wider transition-colors">Step 05</div>
+                        <h3 class="text-2xl font-black text-slate-900 group-hover:text-slate-950 transition-colors">Quality Control & Dynamic Road Testing</h3>
+                        <p class="text-slate-600 group-hover:text-slate-900 text-sm leading-relaxed transition-colors">
+                            Rigorous safety checks including high-voltage insulation tests, braking efficiency verification, and real-world road tests.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-2 text-xs font-bold text-slate-500 group-hover:text-slate-900 transition-colors">
+                            <i class="bi bi-check-circle-fill text-emerald-500 group-hover:text-slate-950 text-base transition-colors"></i>
+                            <span>100% Quality Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Final Indicator (1/4 Right) -->
+            <div class="hidden md:flex md:col-span-3 justify-center items-center">
+                <div class="flex flex-col items-center space-y-2 text-emerald-500">
+                    <i class="bi bi-patch-check-fill text-6xl drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]"></i>
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Ready for Fleet</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Document Downloads Section with Full-Screen Background -->
+<section class="relative w-full py-16 px-6 overflow-hidden">
+    <!-- Background Image covering the whole section -->
+    <img src="{% static 'fleet/images/gofdfrey_truck.png' %}" 
+         alt="Background" 
+         class="absolute inset-0 w-full h-full object-cover filter blur-sm scale-105 opacity-30">
+    
+    <!-- Dark Gradient Overlay -->
+    <div class="absolute inset-0 bg-slate-950/40"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto space-y-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-white">Explore & Download Specific Document</h2>
+            <p class="text-slate-400 mt-2 text-sm">Click any document card below to preview or download technical sheets.</p>
+        </div>
+
+        <!-- 2 Small Cards Side-by-Side -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+            <!-- DOCUMENT CARD 1 -->
+            <div class="bg-slate-900/90 border border-slate-800/80 hover:border-utu-orange/50 rounded-2xl p-5 backdrop-blur-md shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between space-y-4">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-utu-orange/20 text-utu-orange font-bold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider border border-utu-orange/30">Technical Manual</span>
+                        <span class="text-[11px] text-slate-400 font-medium">PDF • 4.8 MB</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white leading-snug">UTU Commercial EV Powertrain & Assembly Blueprint</h3>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-2 pt-1">
+                    <button onclick="handleCardClick(this)"
+                            data-doc-url="{% static 'fleet/docs/assembly_powertrain_specs.pdf' %}"
+                            data-doc-title="UTU Electric Powertrain & Assembly Manual"
+                            class="flex-1 bg-utu-orange hover:bg-amber-500 text-slate-950 font-extrabold text-xs py-2 px-3 rounded-lg flex items-center justify-center space-x-1.5 transition-colors cursor-pointer">
+                        <span>Open</span>
+                        <i class="bi bi-arrow-up-right text-xs"></i>
+                    </button>
+                    <a href="{% static 'fleet/docs/utu_bebe_doc.pdf' %}" download
+                       class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs py-2 px-3 rounded-lg flex items-center justify-center space-x-1.5 transition-colors">
+                        <i class="bi bi-download text-xs text-utu-orange"></i>
+                        <span>Download</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- DOCUMENT CARD 2 -->
+            <div class="bg-slate-900/90 border border-slate-800/80 hover:border-utu-orange/50 rounded-2xl p-5 backdrop-blur-md shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between space-y-4">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-utu-orange/20 text-utu-orange font-bold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider border border-utu-orange/30">Diagnostic Guide</span>
+                        <span class="text-[11px] text-slate-400 font-medium">PDF • 3.2 MB</span>
+                    </div>
+                    <h3 class="text-base font-bold text-white leading-snug">Fleet CAN-Bus Telematics & ECU Diagnostics</h3>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-2 pt-1">
+                    <button onclick="handleCardClick(this)"
+                            data-doc-url="{% static 'fleet/docs/truck_assembly_report.pdf' %}"
+                            data-doc-title="CAN-Bus Telematics & Diagnostic Guide"
+                            class="flex-1 bg-utu-orange hover:bg-amber-500 text-slate-950 font-extrabold text-xs py-2 px-3 rounded-lg flex items-center justify-center space-x-1.5 transition-colors cursor-pointer">
+                        <span>Open</span>
+                        <i class="bi bi-arrow-up-right text-xs"></i>
+                    </button>
+                    <a href="{% static 'fleet/docs/telematics_maintenance_guide.pdf' %}" download
+                       class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs py-2 px-3 rounded-lg flex items-center justify-center space-x-1.5 transition-colors">
+                        <i class="bi bi-download text-xs text-utu-orange"></i>
+                        <span>Download</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Frequently Asked Questions Section -->
+<section class="w-full py-16 px-6 bg-slate-950/60 border-t border-slate-800/60">
+    <div class="max-w-4xl mx-auto space-y-10">
+        
+        <!-- Header -->
+        <div class="text-center space-y-2">
+            <span class="text-xs font-bold text-utu-orange uppercase tracking-widest bg-utu-orange/10 px-3 py-1 rounded-full border border-utu-orange/20">Support & Specs</span>
+            <h2 class="text-2xl md:text-3xl font-black text-white">Frequently Asked Questions</h2>
+            <p class="text-slate-400 text-sm max-w-xl mx-auto">Common questions regarding UTU electric truck technology, charging, and telemetry systems.</p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4">
+            
+            <!-- FAQ Item 1 -->
+            <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer text-white font-bold text-sm md:text-base select-none">
+                    <span>What battery technology powers UTU electric trucks?</span>
+                    <span class="ml-4 flex-shrink-0 text-utu-orange transition-transform duration-300 group-open:-rotate-180">
+                        <i class="bi bi-chevron-down text-lg"></i>
+                    </span>
+                </summary>
+                <div class="px-5 pb-5 text-slate-400 text-xs md:text-sm leading-relaxed border-t border-slate-800/50 pt-3">
+                    UTU electric trucks utilize high-density CATL Lithium Iron Phosphate (LFP) batteries equipped with liquid thermal management systems for optimal temperature control and long lifespan across heavy usage cycles.
+                </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer text-white font-bold text-sm md:text-base select-none">
+                    <span>How does real-time telematics and CAN-Bus monitoring work?</span>
+                    <span class="ml-4 flex-shrink-0 text-utu-orange transition-transform duration-300 group-open:-rotate-180">
+                        <i class="bi bi-chevron-down text-lg"></i>
+                    </span>
+                </summary>
+                <div class="px-5 pb-5 text-slate-400 text-xs md:text-sm leading-relaxed border-t border-slate-800/50 pt-3">
+                    Every vehicle integrates 4G-enabled CAN-Bus telematics that continuously relay battery health, motor temperature, speed, location, and predictive maintenance alerts directly to fleet managers.
+                </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer text-white font-bold text-sm md:text-base select-none">
+                    <span>What charging standards and speeds are supported?</span>
+                    <span class="ml-4 flex-shrink-0 text-utu-orange transition-transform duration-300 group-open:-rotate-180">
+                        <i class="bi bi-chevron-down text-lg"></i>
+                    </span>
+                </summary>
+                <div class="px-5 pb-5 text-slate-400 text-xs md:text-sm leading-relaxed border-t border-slate-800/50 pt-3">
+                    Our commercial fleet vehicles support fast DC charging protocols (CCS Combo 2 / GB/T), allowing up to 80% charge restoration in under 45 minutes depending on the charging station capacity.
+                </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="group bg-slate-900/80 border border-slate-800 rounded-2xl transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between p-5 cursor-pointer text-white font-bold text-sm md:text-base select-none">
+                    <span>How do I request complete technical documentation or custom configurations?</span>
+                    <span class="ml-4 flex-shrink-0 text-utu-orange transition-transform duration-300 group-open:-rotate-180">
+                        <i class="bi bi-chevron-down text-lg"></i>
+                    </span>
+                </summary>
+                <div class="px-5 pb-5 text-slate-400 text-xs md:text-sm leading-relaxed border-t border-slate-800/50 pt-3">
+                    You can download our technical manuals directly using the cards above, or contact our engineering and sales team directly through the quote tab for specialized fleet setups.
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+        <script>
+    function handleCardClick(element) {
+        const docUrl = element.getAttribute('data-doc-url');
+        const docTitle = element.getAttribute('data-doc-title');
+        openDocModal(docUrl, docTitle);
+    }
+
+    function openDocModal(docUrl, docTitle) {
+        document.getElementById('modalDocTitle').innerText = docTitle;
+        document.getElementById('modalDocFrame').src = docUrl;
+        document.getElementById('modalDownloadBtn').href = docUrl;
+        document.getElementById('docViewerModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDocModal() {
+        document.getElementById('docViewerModal').classList.add('hidden');
+        document.getElementById('modalDocFrame').src = '';
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            closeDocModal();
+        }
+    });
+</script>
+{% endblock %}

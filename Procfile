@@ -1,0 +1,1 @@
+web: gunicorn utu_website.utu_website.wsgi:application
