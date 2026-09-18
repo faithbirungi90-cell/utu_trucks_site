@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(BASE_DIR))
 
 # Setup Django environment
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'utu_website.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'utu_website.utu_website.settings')
 django.setup()
 
 from fleet.models import TruckCategory, TruckModel
