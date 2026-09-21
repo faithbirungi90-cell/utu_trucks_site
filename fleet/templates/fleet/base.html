@@ -123,6 +123,10 @@
                         <i class="bi bi-globe group-hover/link:drop-shadow-[0_0_8px_#F5A623]"></i>
                         <span>www.utucars.africa</span>
                     </a>
+                    <a href="https://utu.gnovation.tech" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-utu-orange hover:text-white font-bold text-sm transition-colors duration-300 group/link">
+                        <i class="bi bi-globe group-hover/link:drop-shadow-[0_0_8px_#F5A623]"></i>
+                        <span>utu.gnovation.tech</span>
+                    </a>
                 </div>
 
                 <!-- Column 2: Showroom & Location -->
@@ -131,7 +135,7 @@
                     <div class="flex items-start space-x-3 text-slate-300 text-sm">
                         <i class="bi bi-geo-alt-fill text-utu-orange text-xl shrink-0 mt-0.5 drop-shadow-[0_0_8px_#F5A623]"></i>
                         <div>
-                            <p class="font-bold text-white">Karen 31 Retail Mall</p>
+                            <p class="font-bold text-white">Karen 31 Retail Mall, Along Ngong Road</p>
                             <p class="text-slate-400">Nairobi, Kenya</p>
                         </div>
                     </div>
@@ -155,77 +159,93 @@
                     </a>
                 </div>
 
-                <!-- FLOATING WHATSAPP CHAT POPUP WIDGET -->
-    <div id="whatsappBox" class="fixed bottom-24 right-6 z-50 opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-bottom-right w-80 sm:w-96 bg-slate-900 border border-emerald-500/30 rounded-3xl shadow-[0_10px_30px_rgba(16,185,129,0.3)] overflow-hidden">
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-4 flex items-center justify-between text-white">
-            <div class="flex items-center space-x-3">
-                <div class="relative">
-                    <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-emerald-400 font-black border border-emerald-300">
-                        <i class="bi bi-whatsapp text-xl"></i>
-                    </div>
-                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full"></span>
+                -- FLOATING WHATSAPP CHAT POPUP WIDGET -->
+<div id="whatsappBox" class="fixed bottom-24 right-6 z-50 opacity-0 scale-95 pointer-events-none transition-all duration-300 origin-bottom-right w-80 sm:w-96 bg-slate-900 border border-emerald-500/30 rounded-3xl shadow-[0_10px_30px_rgba(16,185,129,0.3)] overflow-hidden flex flex-col max-h-[85vh]">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-4 flex items-center justify-between text-white shrink-0">
+        <div class="flex items-center space-x-3">
+            <div class="relative">
+                <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-emerald-400 font-black border border-emerald-300">
+                    <i class="bi bi-whatsapp text-xl"></i>
                 </div>
-                <div>
-                    <h4 class="font-extrabold text-sm leading-tight">UTU Fleet Support</h4>
-                    <p class="text-[11px] text-emerald-100 opacity-90">Online | Fast response</p>
-                </div>
+                <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full"></span>
             </div>
-            <button id="whatsappCloseBtn" class="text-emerald-100 hover:text-white p-1 transition-colors">
-                <i class="bi bi-x-lg text-lg"></i>
-            </button>
+            <div>
+                <h4 class="font-extrabold text-sm leading-tight">UTU Fleet Support</h4>
+                <p class="text-[11px] text-emerald-100 opacity-90">Online | Fast response</p>
+            </div>
         </div>
-
-        <!-- Body Message -->
-        <div class="p-5 space-y-4 text-slate-200">
-            <div class="bg-slate-800/90 border border-slate-700/60 rounded-2xl p-3.5 text-xs leading-relaxed space-y-1">
-                <p class="font-bold text-emerald-400">👋 Welcome to UTU Commercial Fleet!</p>
-                <p class="text-slate-300">How can we assist your business today? Explore quick links below or click to chat directly with our team.</p>
-            </div>
-
-            <!-- Navigation Quick Links -->
-            <div class="space-y-1.5">
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Quick Navigation:</span>
-                <div class="grid grid-cols-1 gap-1.5 text-xs font-semibold">
-                    <a href="{% url 'technology' %}" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
-                        <span class="flex items-center space-x-2"><i class="bi bi-cpu text-utu-orange"></i><span>Technology Tab</span></span>
-                        <i class="bi bi-chevron-right text-xs text-slate-500"></i>
-                    </a>
-                    <a href="{% url 'lineup' %}" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
-                        <span class="flex items-center space-x-2"><i class="bi bi-truck text-utu-orange"></i><span>Commercial Lineup</span></span>
-                        <i class="bi bi-chevron-right text-xs text-slate-500"></i>
-                    </a>
-                    <a href="{% url 'get_quote' %}" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
-                        <span class="flex items-center space-x-2"><i class="bi bi-file-earmark-text text-utu-orange"></i><span>Get a Quotation</span></span>
-                        <i class="bi bi-chevron-right text-xs text-slate-500"></i>
-                    </a>
-                    <a href="{% url 'technology' %}#faq" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
-                        <span class="flex items-center space-x-2"><i class="bi bi-question-circle text-utu-orange"></i><span>Frequently Asked Questions</span></span>
-                        <i class="bi bi-chevron-right text-xs text-slate-500"></i>
-                    </a>
-                    <a href="#footer-contact" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
-                        <span class="flex items-center space-x-2"><i class="bi bi-telephone text-utu-orange"></i><span>Contact Us</span></span>
-                        <i class="bi bi-chevron-right text-xs text-slate-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Direct WhatsApp Chat Button -->
-            <a href="https://wa.me/254717754332?text=Hello%20UTU%20Fleet%20Team,%20I%20would%20like%20more%20information%20about%20your%20commercial%20electric%20trucks."
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm py-3 px-4 rounded-xl flex items-center justify-center space-x-2 transition shadow-lg hover:shadow-emerald-500/50 transform hover:scale-[1.02]">
-                <i class="bi bi-whatsapp text-lg"></i>
-                <span>Open Chat</span>
-            </a>
-        </div>
+        <button id="whatsappCloseBtn" class="text-emerald-100 hover:text-white p-1 transition-colors">
+            <i class="bi bi-x-lg text-lg"></i>
+        </button>
     </div>
 
-    <!-- PROMINENT FLOATING TOGGLE BUTTON -->
-    <button id="whatsappToggleBtn" aria-label="Open WhatsApp Chat"
-            class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-emerald-200">
-        <i class="bi bi-whatsapp text-3xl"></i>
-    </button>
+    <!-- Scrollable Content Body -->
+    <div class="p-5 space-y-4 text-slate-200 overflow-y-auto flex-1 custom-scrollbar">
+        <div class="bg-slate-800/90 border border-slate-700/60 rounded-2xl p-3.5 text-xs leading-relaxed space-y-1">
+            <p class="font-bold text-emerald-400">👋 Welcome to UTU Commercial Fleet!</p>
+            <p class="text-slate-300">How can we assist your business today? Explore quick links below or ask our AI assistant a question!</p>
+        </div>
+
+        <!-- Navigation Quick Links -->
+        <div class="space-y-1.5">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Quick Navigation:</span>
+            <div class="grid grid-cols-1 gap-1.5 text-xs font-semibold">
+                <a href="{% url 'technology' %}" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
+                    <span class="flex items-center space-x-2"><i class="bi bi-cpu text-utu-orange"></i><span>Technology Tab</span></span>
+                    <i class="bi bi-chevron-right text-xs text-slate-500"></i>
+                </a>
+                <a href="{% url 'lineup' %}" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
+                    <span class="flex items-center space-x-2"><i class="bi bi-truck text-utu-orange"></i><span>Commercial Lineup</span></span>
+                    <i class="bi bi-chevron-right text-xs text-slate-500"></i>
+                </a>
+                <a href="{% url 'get_quote' %}" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
+                    <span class="flex items-center space-x-2"><i class="bi bi-file-earmark-text text-utu-orange"></i><span>Get a Quotation</span></span>
+                    <i class="bi bi-chevron-right text-xs text-slate-500"></i>
+                </a>
+                <a href="{% url 'technology' %}#faq" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
+                    <span class="flex items-center space-x-2"><i class="bi bi-question-circle text-utu-orange"></i><span>Frequently Asked Questions</span></span>
+                    <i class="bi bi-chevron-right text-xs text-slate-500"></i>
+                </a>
+                <a href="#footer-contact" class="flex items-center justify-between p-2 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-utu-orange border border-slate-700/50 transition">
+                    <span class="flex items-center space-x-2"><i class="bi bi-telephone text-utu-orange"></i><span>Contact Us</span></span>
+                    <i class="bi bi-chevron-right text-xs text-slate-500"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Chat Log Stream -->
+        <div id="chatMessages" class="space-y-2 text-xs pt-2 border-t border-slate-800">
+            <!-- Dynamic bot & user messages mount here -->
+        </div>
+
+        <!-- Direct WhatsApp Chat Button -->
+        <a id="directWhatsappBtn" href="https://wa.me/254717754332?text=Hello%20UTU%20Fleet%20Team,%20I%20would%20like%20more%20information%20about%20your%20commercial%20electric%20trucks."
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm py-3 px-4 rounded-xl flex items-center justify-center space-x-2 transition shadow-lg hover:shadow-emerald-500/50 transform hover:scale-[1.02]">
+            <i class="bi bi-whatsapp text-lg"></i>
+            <span>Open Chat on WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Chat Assistant Input Footer -->
+    <div class="p-3 bg-slate-950 border-t border-slate-800 shrink-0">
+        <form id="chatAssistantForm" class="flex items-center space-x-2">
+            <input type="text" id="chatAssistantInput" placeholder="Ask about range, pricing, models..." 
+                   class="flex-1 bg-slate-800 text-slate-200 text-xs rounded-xl px-3 py-2.5 border border-slate-700 focus:outline-none focus:border-emerald-500 placeholder-slate-500 transition">
+            <button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 p-2.5 rounded-xl flex items-center justify-center transition">
+                <i class="bi bi-send-fill text-xs"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- PROMINENT FLOATING TOGGLE BUTTON -->
+<button id="whatsappToggleBtn" aria-label="Open WhatsApp Chat"
+        class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-emerald-200">
+    <i class="bi bi-whatsapp text-3xl"></i>
+</button>
 
                 <!-- Column 4: Interactive Social Media Hub -->
                 <div class="space-y-4">
@@ -274,26 +294,81 @@
 
     <!-- Standalone Global Toggle Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const toggleBtn = document.getElementById('whatsappToggleBtn');
-            const closeBtn = document.getElementById('whatsappCloseBtn');
-            const box = document.getElementById('whatsappBox');
+document.addEventListener('DOMContentLoaded', function () {
+    // Existing WhatsApp Box Toggle Elements
+    const toggleBtn = document.getElementById('whatsappToggleBtn');
+    const closeBtn = document.getElementById('whatsappCloseBtn');
+    const box = document.getElementById('whatsappBox');
 
-            function toggleBox() {
-                if (box.classList.contains('opacity-0')) {
-                    box.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-                    box.classList.add('opacity-100', 'scale-100');
-                } else {
-                    box.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-                    box.classList.remove('opacity-100', 'scale-100');
-                }
+    function toggleBox() {
+        if (box.classList.contains('opacity-0')) {
+            box.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+            box.classList.add('opacity-100', 'scale-100');
+        } else {
+            box.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            box.classList.remove('opacity-100', 'scale-100');
+        }
+    }
+
+    if (toggleBtn) toggleBtn.addEventListener('click', toggleBox);
+    if (closeBtn) closeBtn.addEventListener('click', toggleBox);
+
+    // Chat Assistant Logic
+    const chatForm = document.getElementById("chatAssistantForm");
+    const chatInput = document.getElementById("chatAssistantInput");
+    const chatMessages = document.getElementById("chatMessages");
+    const directWhatsappBtn = document.getElementById("directWhatsappBtn");
+
+    const botKnowledge = [
+        { keywords: ["price", "cost", "quote", "buying", "how much"], response: "For exact pricing and custom fleet package quotes, click 'Get a Quotation' above or hit 'Open Chat on WhatsApp' below to speak to sales directly!" },
+        { keywords: ["range", "distance", "km", "battery", "charge", "charging"], response: "Our commercial electric trucks offer flexible battery configurations tailored for urban and regional operations. Check out our Technology Tab for full specs!" },
+        { keywords: ["truck", "model", "lineup", "payload", "ton"], response: "We offer range options across various tonnage capacities! You can browse our full Commercial Lineup using the link above." },
+        { keywords: ["contact", "call", "location", "office", "phone"], response: "You can reach us directly via WhatsApp or call us at +254 717 754 332." }
+    ];
+
+    if (chatForm) {
+        chatForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // Render User Message
+            const userMsg = document.createElement("div");
+            userMsg.className = "p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 ml-6 text-right";
+            userMsg.textContent = text;
+            chatMessages.appendChild(userMsg);
+
+            // Dynamically pre-fill the direct WhatsApp URL with the typed user message
+            if (directWhatsappBtn) {
+                directWhatsappBtn.href = `https://wa.me/254717754332?text=${encodeURIComponent('Hello UTU Team, ' + text)}`;
             }
 
-            if (toggleBtn) toggleBtn.addEventListener('click', toggleBox);
-            if (closeBtn) closeBtn.addEventListener('click', toggleBox);
-        });
+            chatInput.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // Mobile Navbar Toggle Script
+            // Process Bot Answer
+            setTimeout(() => {
+                let replyText = "Thanks for asking! For detailed specifics on that, feel free to drop us a direct message on WhatsApp using the button below.";
+                const lowerText = text.toLowerCase();
+
+                for (const item of botKnowledge) {
+                    if (item.keywords.some(k => lowerText.includes(k))) {
+                        replyText = item.response;
+                        break;
+                    }
+                }
+
+                const botMsg = document.createElement("div");
+                botMsg.className = "p-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 mr-6";
+                botMsg.textContent = replyText;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 400);
+        });
+    }
+});
+
+// Mobile Navbar Toggle Script
 const menuToggleBtn = document.getElementById('menuToggleBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const menuIcon = document.getElementById('menuIcon');
@@ -305,7 +380,7 @@ if (menuToggleBtn && mobileMenu) {
         menuIcon.classList.toggle('bi-x-lg');
     });
 }
-    </script>
+</script>
     {% block extra_scripts %}{% endblock %}
 </body>
 </html>
