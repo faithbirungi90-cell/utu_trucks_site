@@ -40,6 +40,7 @@ class TruckModel(models.Model):
     max_speed = models.CharField(max_length=50, blank=True, null=True, help_text="e.g. 90 km/h")
     drive_mode = models.CharField(max_length=50, blank=True, null=True, help_text="e.g. 4x2 / 4x4")
     charging_port = models.CharField(max_length=50, default="CCS2")
+    price = models.CharField(max_length=100, default="Contact for Price")
     
     featured = models.BooleanField(default=False)
 

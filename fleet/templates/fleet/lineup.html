@@ -41,24 +41,32 @@
           
           <div>
             <!-- Card Image Box -->
-<div class="relative w-full h-52 bg-slate-100 overflow-hidden border-b border-slate-100">
-  {% if truck.main_image %}
-    {% if "http" in truck.main_image.name or "http" in truck.main_image|stringformat:"s" %}
-      <img src="{{ truck.main_image }}" alt="{{ truck.name }}" class="w-full h-full object-cover">
-    {% elif truck.main_image.url %}
-      <img src="{{ truck.main_image.url }}" alt="{{ truck.name }}" class="w-full h-full object-cover">
-    {% else %}
-      <img src="{% static truck.main_image %}" alt="{{ truck.name }}" class="w-full h-full object-cover">
-    {% endif %}
-  {% else %}
-    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="{{ truck.name }}" class="w-full h-full object-cover">
-  {% endif %}
+            <div class="relative w-full h-52 bg-slate-100 overflow-hidden border-b border-slate-100">
+              {% if truck.main_image %}
+                {% if "http" in truck.main_image.name or "http" in truck.main_image|stringformat:"s" %}
+                  <img src="{{ truck.main_image }}" alt="{{ truck.name }}" class="w-full h-full object-cover">
+                {% elif truck.main_image.url %}
+                  <img src="{{ truck.main_image.url }}" alt="{{ truck.name }}" class="w-full h-full object-cover">
+                {% else %}
+                  <img src="{% static truck.main_image %}" alt="{{ truck.name }}" class="w-full h-full object-cover">
+                {% endif %}
+              {% else %}
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="{{ truck.name }}" class="w-full h-full object-cover">
+              {% endif %}
 
-  <!-- Category Badge -->
-  <span class="absolute top-4 left-4 inline-block px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-lg bg-slate-950/80 text-utu-orange backdrop-blur-md border border-white/10">
-    {{ truck.category.name }}
-  </span>
-</div>
+              <!-- Category Badge -->
+              <span class="absolute top-4 left-4 inline-block px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-lg bg-slate-950/80 text-utu-orange backdrop-blur-md border border-white/10">
+                {{ truck.category.name }}
+              </span>
+
+              <!-- Price Badge (Top Right Optional Badge) -->
+              {% if truck.price %}
+                <span class="absolute top-4 right-4 inline-block px-3 py-1 text-[11px] font-black tracking-wide rounded-lg bg-utu-orange text-slate-950 shadow-md">
+                  {{ truck.price }}
+                </span>
+              {% endif %}
+            </div>
+
             <!-- Card Body -->
             <div class="p-6">
               <!-- Truck Name & Tagline -->
@@ -89,7 +97,7 @@
                 </div>
               </div>
 
-              <!-- Extra Specs -->
+              <!-- Extra Specs & Price Row -->
               <div class="space-y-1.5 text-xs text-slate-500 pt-3 border-t border-slate-100">
                 {% if truck.dimensions %}
                   <div class="flex items-center justify-between"><strong class="text-slate-700 font-semibold">Dimensions:</strong> <span>{{ truck.dimensions }}</span></div>
@@ -97,12 +105,20 @@
                 {% if truck.motor_peak_power %}
                   <div class="flex items-center justify-between"><strong class="text-slate-700 font-semibold">Motor Power:</strong> <span>{{ truck.motor_peak_power }} ({{ truck.motor_torque }})</span></div>
                 {% endif %}
+
+                <!-- Price Field Row -->
+                {% if truck.price %}
+                  <div class="flex items-center justify-between pt-2 mt-1 border-t border-slate-100">
+                    <strong class="text-slate-900 font-black uppercase text-[11px] tracking-wider">Starting Price:</strong>
+                    <span class="text-sm font-black text-utu-orange">{{ truck.price }}</span>
+                  </div>
+                {% endif %}
               </div>
             </div>
           </div>
 
           <!-- Card Actions -->
-          <div class="p-4 sm:p-5 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3S">
+          <div class="p-4 sm:p-5 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
             <a href="{% url 'truck_detail' truck.pk %}" 
                class="flex-1 text-center py-3 px-4 bg-white border border-slate-300 text-slate-800 text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-slate-100 transition shadow-sm">
               View Specs
