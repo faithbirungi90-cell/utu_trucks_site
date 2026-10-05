@@ -18,11 +18,24 @@ class TruckModel(models.Model):
     tagline = models.CharField(max_length=255, blank=True)
     
     # Primary Card Thumbnail Image
-    main_image = models.ImageField(upload_to='trucks/main/', blank=True, null=True)
-    
-    # Dedicated Quick-Access View Fields
-    interior_image = models.ImageField(upload_to='trucks/interior/', blank=True, null=True, help_text="Cabin / Interior view photo")
-    exterior_image = models.ImageField(upload_to='trucks/exterior/', blank=True, null=True, help_text="Full exterior vehicle photo")
+    main_image = models.CharField(
+        max_length=255,
+        default='fleet/images/5_step_truck.png',
+        help_text="Relative static path, e.g. 'fleet/images/4T_dayun.png'"
+    )    
+    # Optional static image paths
+    interior_image = models.CharField(
+        max_length=255, 
+        blank=True, 
+        null=True, 
+        help_text="e.g. 'fleet/images/inside-truck.png'"
+    )
+    exterior_image = models.CharField(
+        max_length=255, 
+        blank=True, 
+        null=True, 
+        help_text="e.g. 'fleet/images/electric-truck.png'"
+    )
     
     brochure_pdf = models.FileField(upload_to='brochures/', blank=True, null=True)
     

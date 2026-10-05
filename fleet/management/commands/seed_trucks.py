@@ -44,6 +44,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/5_step_truck.png',
             },
             {
                 'category': med_duty,
@@ -61,6 +62,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/default-truck.png'
             },
             {
                 'category': light_comm,
@@ -78,6 +80,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/4T_dayun.png',
             },
             {
                 'category': heavy_duty,
@@ -95,6 +98,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/18T.png',
             },
             # Dongfeng Trucks
             {
@@ -113,6 +117,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/2.5T_dongfeng.png',
             },
             {
                 'category': light_comm,
@@ -130,6 +135,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/4.5T_dongfeng.png',
             },
             {
                 'category': med_duty,
@@ -147,6 +153,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/8.5T_dongfeng.png',
             },
             {
                 'category': heavy_duty,
@@ -164,6 +171,7 @@ class Command(BaseCommand):
                 'drive_mode': '4x2',
                 'charging_port': 'CCS2',
                 'price': 'Contact for price',
+                'image': 'fleet/images/12T_dongfeng.png',
             },
         ]
 
