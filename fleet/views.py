@@ -20,9 +20,9 @@ def home(request):
 
 
 def lineup(request):
-    category_slug = request.GET.get('category')
-    categories = TruckCategory.objects.all()
-    trucks = TruckModel.objects.select_related('category').all()
+    trucks = TruckModel.objects.all().order_by('id')
+    categories = Category.objects.all()
+    return render(request, 'fleet/lineup.html', {'trucks': trucks, 'categories': categories})
 
     if category_slug:
         trucks = trucks.filter(category__slug=category_slug)
