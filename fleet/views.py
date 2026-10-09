@@ -20,15 +20,15 @@ def home(request):
 
 
 def lineup(request):
-    # Order trucks in ascending order by payload_capacity_kg (or 'id')
-    trucks = TruckModel.objects.all().order_by('payload_capacity_kg')
+    # Order by creation ID so it follows the exact list order in seed_trucks.py
+    trucks = TruckModel.objects.all().order_by('id')
     categories = TruckCategory.objects.all()
     
     return render(request, 'fleet/lineup.html', {
         'trucks': trucks, 
         'categories': categories
     })
-    
+
     if category_slug:
         trucks = trucks.filter(category__slug=category_slug)
 
