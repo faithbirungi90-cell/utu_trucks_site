@@ -45,7 +45,7 @@ class Command(BaseCommand):
                 'price': 'Contact for price',
                 'main_image': 'fleet/images/2.5T_dongfeng.png',
             },
-             {
+            {
                 'category': light_comm,
                 'name': 'Dayun 4 Tonne Truck',
                 'tagline': 'Built for urban distribution with 7.2T loading capability.',
@@ -117,7 +117,6 @@ class Command(BaseCommand):
                 'price': 'Contact for price',
                 'main_image': 'fleet/images/8.5T_dongfeng.png',
             },
-
             {
                 'category': heavy_duty,
                 'name': 'Dayun 10 Tonne Truck',
