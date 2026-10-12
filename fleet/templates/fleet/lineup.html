@@ -134,4 +134,218 @@
 
   </div>
 </section>
+<!-- UTU STANDARD COMMERCIAL FEATURES & FLEET ASSURANCE SUITE -->
+<section id="standard-features" class="py-20 px-6 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800 select-none">
+    
+    <!-- Ambient Tech Glow Overlay -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-utu-orange/10 rounded-full blur-[150px]"></div>
+        <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#F5A623_1px,transparent_1px),linear-gradient(to_bottom,#F5A623_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="bg-utu-orange/15 text-utu-orange border border-utu-orange/30 text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-widest inline-block mb-3">
+                Factory Standard Equipment
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                Standard Across <span class="text-utu-orange">Every UTU Truck</span>
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-3">
+                No hidden costs or missing essentials. Every commercial unit delivered in Kenya includes our complete heavy-duty safety, thermal management, and telematics suite as standard.
+            </p>
+        </div>
+
+        <!-- Main Interactive Features Card Container -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
+            
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pb-8 border-b border-slate-800" id="featureTabGroup">
+                <button type="button" data-category="safety" class="feature-tab-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 bg-utu-orange text-slate-950 border border-utu-orange shadow-lg flex items-center space-x-2 active-tab">
+                    <i class="bi bi-shield-check text-base"></i>
+                    <span>Active Safety & Braking</span>
+                </button>
+                
+                <button type="button" data-category="evtech" class="feature-tab-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 bg-slate-800 text-slate-300 border border-slate-700 hover:text-white flex items-center space-x-2">
+                    <i class="bi bi-battery-charging text-base text-utu-orange"></i>
+                    <span>Battery & Powertrain</span>
+                </button>
+                
+                <button type="button" data-category="cabin" class="feature-tab-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 bg-slate-800 text-slate-300 border border-slate-700 hover:text-white flex items-center space-x-2">
+                    <i class="bi bi-speedometer2 text-base text-utu-orange"></i>
+                    <span>Driver Cabin Comfort</span>
+                </button>
+                
+                <button type="button" data-category="chassis" class="feature-tab-btn px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-300 bg-slate-800 text-slate-300 border border-slate-700 hover:text-white flex items-center space-x-2">
+                    <i class="bi bi-cpu text-base text-utu-orange"></i>
+                    <span>Telematics & Hardware</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Feature Grid Content -->
+            <div class="pt-8">
+                
+                <!-- 1. SAFETY & BRAKING TAB PANEL -->
+                <div id="panel-safety" class="feature-panel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-shield-fill-check text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Full Air Brake + ABS System</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Dual-circuit pneumatics paired with Anti-Lock Braking for emergency stability with maximum payloads.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-arrow-down-up text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Hill Start Assist & Roll Control</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Prevents roll-back on steep inclines and minimizes chassis sway during heavy freight transport.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-eye-fill text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">360° Reverse Radar & Sounder</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Rear acoustic distance sensors and reverse camera integration for safe depot docking.</p>
+                    </div>
+                </div>
+
+                <!-- 2. BATTERY & EV TECH TAB PANEL (Initially Hidden) -->
+                <div id="panel-evtech" class="feature-panel hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-battery-charging text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">CATL LFP Battery Packs</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">High-density Lithium Iron Phosphate chemistry with up to 4,000 deep charge cycles warranty.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-thermometer-half text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Liquid Thermal Conditioning</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Active liquid cooling system maintaining optimal battery temperatures under tropical climate operation.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-lightning-charge-fill text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Dual-Gun CCS2 Fast Charging</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Standardized CCS2 inlet supporting ultra-fast 120kW–150kW DC depot charging chargers.</p>
+                    </div>
+                </div>
+
+                <!-- 3. DRIVER CABIN TAB PANEL (Initially Hidden) -->
+                <div id="panel-cabin" class="feature-panel hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-snow text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">High-Capacity Climate Control</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Heavy-duty electric A/C system engineered for fast cabin cooling without severe battery drain.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-display text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Digital Cluster & Telematics LCD</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Real-time driver instrument panel displaying state-of-charge (SoC), energy consumption, and fault diagnostics.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-person-workspace text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Ergonomic Air Suspension Seat</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Multi-point adjustable air-ride driver seat designed to reduce operator fatigue on long regional routes.</p>
+                    </div>
+                </div>
+
+                <!-- 4. TELEMATICS & HARDWARE TAB PANEL (Initially Hidden) -->
+                <div id="panel-chassis" class="feature-panel hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-wifi text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">4G GPS Telematics Gateway</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Pre-installed SIM telemetry tracking live vehicle position, speed, battery health, and charge logs remotely.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-wrench-adjustable text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">KVM Local Assembly Quality</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Assembled locally at Kenya Vehicle Manufacturers in Thika with complete spare parts availability in Nairobi.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-utu-orange/50 transition duration-300">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-utu-orange/15 text-utu-orange"><i class="bi bi-patch-check-fill text-xl"></i></div>
+                            <h4 class="font-extrabold text-sm text-white">Commercial Fleet Warranty</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">Backed by UTU Cars Africa's standard bumper-to-bumper chassis and drivetrain coverage across East Africa.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Note & Inquiry Link -->
+            <div class="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <p class="flex items-center space-x-2">
+                    <i class="bi bi-info-circle text-utu-orange"></i>
+                    <span>Looking for custom additions like refrigerated bodies or hydraulic tail-lifts?</span>
+                </p>
+                <a href="{% url 'get_quote' %}" class="inline-flex items-center space-x-2 text-utu-orange hover:text-white font-bold uppercase tracking-wider transition">
+                    <span>Request Custom Build</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabBtns = document.querySelectorAll('.feature-tab-btn');
+        const panels = document.querySelectorAll('.feature-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetCategory = btn.getAttribute('data-category');
+
+                // 1. Reset all buttons styling
+                tabBtns.forEach(b => {
+                    b.classList.remove('bg-utu-orange', 'text-slate-950', 'border-utu-orange', 'shadow-lg');
+                    b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                    b.querySelector('i').classList.add('text-utu-orange');
+                });
+
+                // 2. Highlight clicked button
+                btn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                btn.classList.add('bg-utu-orange', 'text-slate-950', 'border-utu-orange', 'shadow-lg');
+                btn.querySelector('i').classList.remove('text-utu-orange');
+
+                // 3. Toggle corresponding panel
+                panels.forEach(panel => {
+                    if (panel.id === `panel-${targetCategory}`) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    });
+</script>
 {% endblock %}

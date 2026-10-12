@@ -6,13 +6,24 @@
 {% block content %}
 <!-- 1. HERO SECTION -->
 <section id="home-hero" class="relative w-full min-h-[calc(100vh-80px)] flex items-center bg-gray-900 overflow-hidden">
-    <!-- Background Image -->
-    <div class="absolute inset-0 z-0">
-        <!-- AFTER -->
-<img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" 
-     alt="UTU Electric Commercial Truck" 
-     class="w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out hover:scale-105">
-        
+        <!-- Background Slideshow Images -->
+         <div id="hero-slideshow" class="absolute inset-0 z-0 w-full h-full">
+        <!-- Slide 1: 18T Prime Mover -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+            <img src="{% static 'fleet/images/Electrical-Prime-Mover.jpg' %}" alt="UTU 18T Electric Prime Mover" class="w-full h-full object-cover object-center filter brightness-[0.8]">
+        </div>
+        <!-- Slide 2: 21T Heavy Prime Mover -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="{% static 'fleet/images/Group_prime_movers.jpg' %}" alt="UTU 21T Heavy Prime Mover" class="w-full h-full object-cover object-center filter brightness-[0.8]">
+        </div>
+        <!-- Slide 3: Telematics & EV Tech -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="{% static 'fleet/images/Prime_mover.jpg' %}" alt="UTU Fleet Technology" class="w-full h-full object-cover object-center filter brightness-[0.8]">
+        </div>
+        <!-- Slide 4: Commercial Fleet Lineup -->
+        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+            <img src="{% static 'fleet/images/Interior_primemover.jpg' %}" alt="UTU Commercial Lineup" class="w-full h-full object-cover object-center filter brightness-[0.8]">
+        </div>        
         <!-- Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-t from-utu-dark/95 via-utu-dark/50 to-transparent"></div>
     </div>
@@ -256,138 +267,159 @@
     </div>
 </section>
 
-<!-- Home Page Contact Us Section (Light Theme) -->
-<section id="contact-us" class="relative py-20 px-6 bg-white text-slate-900 overflow-hidden border-t border-slate-200">
+<!-- UNIQUE UTU COMMERCIAL FLEET FINANCING & LEASING SUITE -->
+<section id="utu-leasing-suite" class="relative py-24 px-6 bg-slate-950 text-white overflow-hidden border-t border-slate-800/80">
     
-    <!-- Subtle Background Grid Overlay -->
+    <!-- Ambient Tech Glow Overlay -->
     <div class="absolute inset-0 pointer-events-none z-0">
-        <div class="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-        <div class="absolute -top-32 right-1/4 w-[500px] h-[500px] bg-utu-orange/10 rounded-full blur-[140px]"></div>
+        <div class="absolute top-0 left-1/3 w-[600px] h-[600px] bg-utu-orange/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-0 right-10 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[120px]"></div>
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#F5A623_1px,transparent_1px)] bg-[size:2rem_2rem]"></div>
     </div>
 
     <div class="max-w-7xl mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <!-- Left Side: Section Intro & Direct Contact Info -->
+            <!-- Left Side: Custom Value Propositions & BaaS Intro -->
             <div class="lg:col-span-5 space-y-8">
-                <div class="space-y-3">
-                    <span class="text-xs font-bold text-utu-orange uppercase tracking-widest bg-utu-orange/10 px-3 py-1 rounded-full border border-utu-orange/30">Get In Touch</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-slate-950 leading-tight">Connect with Our Fleet Support Team</h2>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Have questions about commercial EV adoption, custom specs, or charging infrastructure? Fill out the form and our specialist team will reach out promptly.
+                <div class="space-y-4">
+                    <div class="inline-flex items-center space-x-2 bg-utu-orange/15 border border-utu-orange/30 px-4 py-1.5 rounded-full">
+                        <i class="bi bi-lightning-charge-fill text-utu-orange text-xs"></i>
+                        <span class="text-xs font-black text-utu-orange uppercase tracking-widest">UTU Financial Solutions</span>
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
+                        Smart Fleet <span class="text-utu-orange">Leasing & Savings</span> Engine
+                    </h2>
+                    
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        Transitioning your fleet to electric isn't just an expense—it's an operational upgrade. Estimate your custom lease payments and calculate instant monthly fuel cost savings across Kenyan transport routes.
                     </p>
                 </div>
 
-                <!-- Django Success / Error Messages -->
-                {% if messages %}
-                    <div class="space-y-2">
-                        {% for message in messages %}
-                            <div class="p-4 rounded-xl text-sm font-semibold {% if message.tags == 'success' %}bg-emerald-100 border border-emerald-300 text-emerald-900{% else %}bg-rose-100 border border-rose-300 text-rose-900{% endif %}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-
-                <!-- Contact Points -->
-                <div class="space-y-4 pt-2">
-                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                        <div class="w-12 h-12 rounded-xl bg-utu-orange/20 text-utu-orange border border-utu-orange/40 flex items-center justify-center shrink-0">
-                            <i class="bi bi-geo-alt-fill text-xl"></i>
+                <!-- Unique Financing Models -->
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-utu-orange/50 transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-1">
+                            <i class="bi bi-building-check text-utu-orange text-lg"></i>
+                            <h4 class="font-extrabold text-sm text-white">Full Operational Leasing</h4>
                         </div>
-                        <div>
-                            <h4 class="text-xs uppercase font-bold text-slate-400">Main Showroom</h4>
-                            <p class="text-sm font-bold text-slate-900">Karen 31 Retail Mall, Nairobi, Kenya</p>
-                        </div>
+                        <p class="text-xs text-slate-400">Zero maintenance headache. Complete vehicle leasing including servicing and telematics integration.</p>
                     </div>
 
-                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                        <div class="w-12 h-12 rounded-xl bg-utu-orange/20 text-utu-orange border border-utu-orange/40 flex items-center justify-center shrink-0">
-                            <i class="bi bi-telephone-fill text-xl"></i>
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-utu-orange/50 transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-1">
+                            <i class="bi bi-battery-charging text-utu-orange text-lg"></i>
+                            <h4 class="font-extrabold text-sm text-white">Battery-as-a-Service (BaaS)</h4>
                         </div>
-                        <div>
-                            <h4 class="text-xs uppercase font-bold text-slate-400">Direct Phone</h4>
-                            <p class="text-sm font-bold text-slate-900">+254 768 667 992</p>
-                        </div>
+                        <p class="text-xs text-slate-400">Lower initial acquisition costs by up to 35% by leasing the high-capacity battery separately.</p>
                     </div>
+                </div>
 
-                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-                        <div class="w-12 h-12 rounded-xl bg-utu-orange/20 text-utu-orange border border-utu-orange/40 flex items-center justify-center shrink-0">
-                            <i class="bi bi-envelope-fill text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs uppercase font-bold text-slate-400">Email Address</h4>
-                            <p class="text-sm font-bold text-slate-900">customercare@utucars.africa</p>
-                        </div>
-                    </div>
+                <!-- Direct WhatsApp CTA -->
+                <div class="pt-2">
+                    <a id="utuFinanceWhatsappLink" 
+                       href="https://wa.me/254768667992?text=Hello%20UTU%20Fleet%20Team,%20I%20would%20like%20a%20tailored%20leasing/financing%20quote."
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-utu-orange hover:bg-utu-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="bi bi-whatsapp text-lg"></i>
+                        <span>Get Official Lease Proposal</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- Right Side: Contact Form -->
+            <!-- Right Side: Custom Interactive TCO & Calculator Card -->
             <div class="lg:col-span-7">
-                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl relative">
-                    <h3 class="text-xl font-extrabold text-slate-950 mb-6 flex items-center space-x-2">
-                        <i class="bi bi-chat-left-dots text-utu-orange"></i>
-                        <span>Send Us a Message</span>
-                    </h3>
+                <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative">
+                    
+                    <!-- Header Tabs: Lease vs Asset Finance -->
+                    <div class="flex items-center justify-between pb-6 border-b border-slate-800 mb-6">
+                        <h3 class="text-lg font-black text-white flex items-center space-x-2">
+                            <i class="bi bi-calculator text-utu-orange"></i>
+                            <span>Fleet Estimator</span>
+                        </h3>
+                        <span class="text-[11px] font-extrabold uppercase tracking-widest text-utu-orange bg-utu-orange/10 px-3 py-1 rounded-full border border-utu-orange/30">
+                            15% p.a. Indicative Rate
+                        </span>
+                    </div>
 
-                    <form method="POST" action="{% url 'home' %}" class="space-y-5">
-                        {% csrf_token %}
-
-                        <!-- Row 1: Full Name & Company -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div class="space-y-2">
-                                <label for="full_name" class="block text-xs font-bold text-slate-700 uppercase">Full Name *</label>
-                                <input type="text" id="full_name" name="full_name" required placeholder="e.g. John Doe"
-                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
-                            </div>
-                            <div class="space-y-2">
-                                <label for="company_name" class="block text-xs font-bold text-slate-700 uppercase">Company / Organization</label>
-                                <input type="text" id="company_name" name="company_name" placeholder="e.g. UTU Logistics Ltd"
-                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
-                            </div>
-                        </div>
-
-                        <!-- Row 2: Email & Phone Number -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div class="space-y-2">
-                                <label for="email" class="block text-xs font-bold text-slate-700 uppercase">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com"
-                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
-                            </div>
-                            <div class="space-y-2">
-                                <label for="phone" class="block text-xs font-bold text-slate-700 uppercase">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="+254 700 000 000"
-                                       class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
-                            </div>
-                        </div>
-
-                        <!-- Inquiry Subject -->
+                    <div class="space-y-6">
+                        <!-- Select Truck Model -->
                         <div class="space-y-2">
-                            <label for="subject" class="block text-xs font-bold text-slate-700 uppercase">Inquiry Type</label>
-                            <select id="subject" name="subject"
-                                    class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none transition shadow-sm">
-                                <option value="general">General Inquiry</option>
-                                <option value="fleet_purchase">Fleet Purchase & Commercial Trucks</option>
-                                <option value="charging">Charging Stations & Infrastructure</option>
-                                <option value="technical">Technical Support & Telematics</option>
+                            <label for="utuTruckModel" class="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                                Choose Vehicle
+                            </label>
+                            <select id="utuTruckModel" class="w-full bg-slate-800/90 border border-slate-700 text-white font-bold text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:border-utu-orange transition shadow-inner">
+                                <option value="4500000" data-fuel-save="45000" selected>Dongfeng EV45 (2.5T) — KES 4,500,000</option>
+                                <option value="6200000" data-fuel-save="65000">Dayun 4 Tonne Truck — KES 6,200,000</option>
+                                <option value="7100000" data-fuel-save="75000">Dongfeng CL L2 (4.5T) — KES 7,100,000</option>
+                                <option value="8500000" data-fuel-save="95000">Dayun 7.5 Tonne Truck — KES 8,500,000</option>
+                                <option value="9800000" data-fuel-save="110000">Dongfeng MNCL L2 (8.5T) — KES 9,800,000</option>
+                                <option value="11500000" data-fuel-save="130000">Dayun 10 Tonne Truck — KES 11,500,000</option>
+                                <option value="13800000" data-fuel-save="160000">Dongfeng M3EV (12T) — KES 13,800,000</option>
+                                <option value="16500000" data-fuel-save="210000">UTU 18 Tonne Prime Mover — KES 16,500,000</option>
                             </select>
                         </div>
 
-                        <!-- Message Field -->
-                        <div class="space-y-2">
-                            <label for="message" class="block text-xs font-bold text-slate-700 uppercase">Your Message *</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your fleet requirement or inquiry..."
-                                      class="w-full bg-white border border-slate-300 focus:border-utu-orange rounded-xl p-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition resize-none shadow-sm"></textarea>
+                        <!-- Down Payment Slider -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-xs font-bold">
+                                <span class="text-slate-400 uppercase tracking-wider">Initial Deposit</span>
+                                <span id="utuDepositValue" class="text-utu-orange font-black text-sm">20% (KES 900,000)</span>
+                            </div>
+                            <input type="range" id="utuDepositSlider" min="10" max="50" step="5" value="20"
+                                   class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-utu-orange">
                         </div>
 
-                        <!-- Submit Button -->
-                        <button type="submit"
-                                class="w-full bg-utu-orange hover:bg-amber-500 text-slate-950 font-black text-sm uppercase tracking-wider py-4 rounded-xl flex items-center justify-center space-x-2 transition-all shadow-md hover:shadow-lg cursor-pointer">
-                            <span>Submit Inquiry</span>
-                            <i class="bi bi-send-fill text-sm"></i>
-                        </button>
-                    </form>
+                        <!-- Duration Selector -->
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Lease Term</label>
+                            <div class="grid grid-cols-4 gap-3" id="utuTermGroup">
+                                <button type="button" data-term="24" class="utu-term-btn py-3 text-xs font-black uppercase rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white transition">24 mo</button>
+                                <button type="button" data-term="36" class="utu-term-btn py-3 text-xs font-black uppercase rounded-xl border border-utu-orange bg-utu-orange text-slate-950 transition active-term">36 mo</button>
+                                <button type="button" data-term="48" class="utu-term-btn py-3 text-xs font-black uppercase rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white transition">48 mo</button>
+                                <button type="button" data-term="60" class="utu-term-btn py-3 text-xs font-black uppercase rounded-xl border border-slate-700 bg-slate-800 text-slate-300 hover:text-white transition">60 mo</button>
+                            </div>
+                        </div>
+
+                        <!-- Live Output Display Card -->
+                        <div class="p-6 rounded-2xl bg-black/90 border border-slate-800 space-y-5">
+                            
+                            <!-- Monthly Lease Payment -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-800">
+                                <div>
+                                    <span class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Estimated Monthly Payment</span>
+                                    <span id="utuMonthlyPayment" class="text-3xl sm:text-4xl font-black text-white">KES 0</span>
+                                </div>
+                                
+                                <!-- Operational Savings Highlight -->
+                                <div class="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl">
+                                    <span class="block text-[9px] font-black text-emerald-400 uppercase tracking-widest">Est. Monthly Fuel Savings</span>
+                                    <span id="utuMonthlySavings" class="text-lg font-black text-emerald-300">~ KES 45,000 / mo</span>
+                                </div>
+                            </div>
+
+                            <!-- Detailed Specs Grid -->
+                            <div class="grid grid-cols-3 gap-2 text-xs">
+                                <div>
+                                    <span class="block font-bold text-slate-500 text-[10px] uppercase">Financed Principal</span>
+                                    <span id="utuPrincipal" class="font-black text-slate-200">KES 0</span>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-slate-500 text-[10px] uppercase">Total Interest</span>
+                                    <span id="utuTotalInterest" class="font-black text-slate-200">KES 0</span>
+                                </div>
+                                <div>
+                                    <span class="block font-bold text-slate-500 text-[10px] uppercase">Total Payable</span>
+                                    <span id="utuTotalPayable" class="font-black text-slate-200">KES 0</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
@@ -399,6 +431,119 @@
 {% block extra_scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- 3. UNIQUE UTU LEASING & SAVINGS CALCULATOR LOGIC ---
+        const truckModel = document.getElementById('utuTruckModel');
+        const depositSlider = document.getElementById('utuDepositSlider');
+        const depositValue = document.getElementById('utuDepositValue');
+        const termBtns = document.querySelectorAll('.utu-term-btn');
+        
+        const monthlyPaymentDisplay = document.getElementById('utuMonthlyPayment');
+        const monthlySavingsDisplay = document.getElementById('utuMonthlySavings');
+        const principalDisplay = document.getElementById('utuPrincipal');
+        const totalInterestDisplay = document.getElementById('utuTotalInterest');
+        const totalPayableDisplay = document.getElementById('utuTotalPayable');
+        const whatsappFinanceBtn = document.getElementById('utuFinanceWhatsappLink');
+
+        let currentTerm = 36;
+        const annualRate = 0.15; // 15% p.a.
+
+        function formatCurrency(val) {
+            return 'KES ' + Math.round(val).toLocaleString('en-KE');
+        }
+
+        function calculateUTULease() {
+            if (!truckModel || !depositSlider) return;
+
+            const price = parseFloat(truckModel.value);
+            const selectedOption = truckModel.options[truckModel.selectedIndex];
+            const truckName = selectedOption.text.split('—')[0].trim();
+            const fuelSavings = parseFloat(selectedOption.getAttribute('data-fuel-save')) || 45000;
+
+            const depositPct = parseFloat(depositSlider.value);
+            const depositAmt = price * (depositPct / 100);
+            const principal = price - depositAmt;
+
+            const monthlyRate = annualRate / 12;
+            const monthlyPayment = (principal * monthlyRate * Math.pow(1 + monthlyRate, currentTerm)) / 
+                                   (Math.pow(1 + monthlyRate, currentTerm) - 1);
+
+            const totalPayable = (monthlyPayment * currentTerm) + depositAmt;
+            const totalInterest = (monthlyPayment * currentTerm) - principal;
+
+            // Update DOM
+            depositValue.textContent = `${depositPct}% (${formatCurrency(depositAmt)})`;
+            monthlyPaymentDisplay.textContent = formatCurrency(monthlyPayment);
+            monthlySavingsDisplay.textContent = `~ ${formatCurrency(fuelSavings)} / mo`;
+            principalDisplay.textContent = formatCurrency(principal);
+            totalInterestDisplay.textContent = formatCurrency(totalInterest);
+            totalPayableDisplay.textContent = formatCurrency(totalPayable);
+
+            // Update WhatsApp Link
+            if (whatsappFinanceBtn) {
+                const msg = `Hello UTU Fleet Team, I reviewed the leasing estimates for the *${truckName}*:\n- Deposit: ${depositPct}% (${formatCurrency(depositAmt)})\n- Lease Term: ${currentTerm} Months\n- Est. Monthly Payment: ${formatCurrency(monthlyPayment)}\n- Estimated Fuel Savings: ${formatCurrency(fuelSavings)}/month.\n\nI would like to request an official lease proposal.`;
+                whatsappFinanceBtn.href = `https://wa.me/254768667992?text=${encodeURIComponent(msg)}`;
+            }
+        }
+
+        termBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                termBtns.forEach(b => {
+                    b.classList.remove('bg-utu-orange', 'text-slate-950', 'border-utu-orange');
+                    b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                });
+                this.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                this.classList.add('bg-utu-orange', 'text-slate-950', 'border-utu-orange');
+
+                currentTerm = parseInt(this.getAttribute('data-term'));
+                calculateUTULease();
+            });
+        });
+
+        if (truckModel && depositSlider) {
+            truckModel.addEventListener('change', calculateUTULease);
+            depositSlider.addEventListener('input', calculateUTULease);
+            calculateUTULease();
+        }
+        
+        // --- 1. HERO SLIDESHOW LOGIC (3-second rotation) ---
+        const slides = document.querySelectorAll('#hero-slideshow .slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        if (slides.length > 0) {
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.remove('opacity-0');
+                        slide.classList.add('opacity-100');
+                    } else {
+                        slide.classList.remove('opacity-100');
+                        slide.classList.add('opacity-0');
+                    }
+                });
+
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.remove('bg-white/40');
+                        dot.classList.add('bg-utu-orange');
+                    } else {
+                        dot.classList.remove('bg-utu-orange');
+                        dot.classList.add('bg-white/40');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Change image every 5000ms (3 seconds)
+            setInterval(nextSlide, 5000);
+        }
+
+        // --- 2. MOTION CANVAS LOGIC ---
         const canvas = document.getElementById('motionCanvas');
         if (!canvas) return;
         
